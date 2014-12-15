@@ -3,6 +3,18 @@ var Board = function () {
   this.winner = null;
 };
 
+Board.prototype.dup = function() {
+  var dup_board = new Board;
+
+  for (var i = 0; i < 3; i++) {
+    for (var j = 0; j < 3; j++) {
+      dup_board.grid[i][j] = this.grid[i][j];
+    }
+  }
+
+  return dup_board;
+};
+
 Board.prototype.isEmpty = function (x, y) {
   return (!this.grid[x][y]);
 };
@@ -69,21 +81,27 @@ Board.prototype.getDiags = function() {
 };
 
 Board.prototype.print = function() {
+
+  console.log("");
+  console.log("    0   1   2  ");
+  console.log("  +---+---+---+");
+
   for (var i = 0; i < 3; i++) {
 
-    var line = "";
+    var line = i + " |";
 
     for (var j = 0; j < 3; j++) {
       if (this.isEmpty(i, j)) {
-        line += " ";
+        line += "   |";
       } else if (this.grid[i][j] === 'x') {
-        line += "x";
+        line += " X |";
       } else {
-        line += "o";
+        line += " O |";
       }
     }
 
     console.log(line);
+    console.log("  +---+---+---+");
   }
 };
 

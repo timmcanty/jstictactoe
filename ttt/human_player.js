@@ -7,6 +7,8 @@ HumanPlayer.prototype.getInput = function (reader, turn, board, callback) {
 
   var move = [];
 
+  board.print();
+
   console.log(turn + ", it is your turn." );
 
   reader.question("Please input your move row: ", function (rowInput) {

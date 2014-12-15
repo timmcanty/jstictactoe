@@ -10,7 +10,6 @@ var Game = function(reader,xPlayer,oPlayer) {
 Game.prototype.run = function (completionCallback) {
   var game = this;
 
-  this.board.print();
   var move = this.players[this.turn]
     .getInput(this.reader, (game.turn) ? 'o' : 'x',
               this.board, function (move) {

@@ -8,7 +8,8 @@ var reader = readline.createInterface({
 var ticTacToe = require('./ttt');
 
 var human = new ticTacToe.HumanPlayer();
-var game = new ticTacToe.Game(reader, human, human);
+var computer = new ticTacToe.ComputerPlayer();
+var game = new ticTacToe.Game(reader, computer, human);
 
 game.run( function (winner) {
   if (winner) {
