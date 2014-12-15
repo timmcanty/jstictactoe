@@ -7,7 +7,8 @@ var reader = readline.createInterface({
 
 var ticTacToe = require('./ttt');
 
-var game = new ticTacToe.Game(reader);
+var human = new ticTacToe.HumanPlayer();
+var game = new ticTacToe.Game(reader, human, human);
 
 game.run( function (winner) {
   if (winner) {
